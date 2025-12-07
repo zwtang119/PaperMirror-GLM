@@ -1,6 +1,6 @@
 # PaperMirror: 论文魔镜 - AI 学术风格迁移
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://zwtang119.github.io/PaperMirror-GLM/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://zwtang119.github.io/PaperMirror/)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
 > **像照镜子一样，将顶刊范文的风格“映照”在你的草稿上。**
@@ -66,7 +66,7 @@ PaperMirror 不使用通用的“帮我润色这篇文章”提示词。它模�
 ## 🙋‍♀️ 常见问题 (FAQ)
 
 **Q: 我的未发表数据安全吗？**
-A: 是的。PaperMirror 是纯前端应用，无后端数据库。您的文件仅在您的浏览器和 GLM API 之间传输。
+A: 是的。PaperMirror 是纯前端应用，无后端数据库。您的文件仅在您的浏览器和 Google Gemini API 之间传输。
 
 **Q: 支持 LaTeX 文件吗？**
 A: 目前支持 `.md` (Markdown) 和 `.txt`。对于 LaTeX 用户，建议先将纯文本内容复制出来进行润色，或者将 `.tex` 转换为 Markdown。
