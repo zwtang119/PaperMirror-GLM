@@ -1,10 +1,10 @@
 # PaperMirror: AI Academic Style Transfer
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://zwtang119.github.io/PaperMirror-GLM/)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://zwtang119.github.io/PaperMirror/)
 [![Chinese Docs](https://img.shields.io/badge/🇨🇳_中文文档-Click_Here-red?style=for-the-badge)](./README_ZH.md)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-**Transform rough drafts into publication-ready manuscripts by quantitatively mirroring the "voice" of top-tier journals using GLM-4.5-Air.**
+**Transform rough drafts into publication-ready manuscripts by quantitatively mirroring the "voice" of top-tier journals using Gemini 2.5 Pro.**
 
 ---
 
@@ -17,7 +17,7 @@ Unlike generic AI rewriters, PaperMirror acts as a **Quantitative Linguistic Eng
     *   *Lexical Density & Complexity* (Vocabulary Tier)
     *   *Passive/Active Voice Ratio* (Objectivity Tone)
 2.  **Contextual Awareness**: It scans your entire draft to understand the macro-structure (Abstract → Conclusion), ensuring the rewritten text maintains perfect logical flow.
-3.  **Style Transfer**: Using **GLM-4.5-Air**, it rewrites your draft chunk-by-chunk to match the extracted fingerprint.
+3.  **Style Transfer**: Using **Gemini 2.5 Pro**, it rewrites your draft chunk-by-chunk to match the extracted fingerprint.
     *   **3 Intensity Levels**: *Conservative* (Polish), *Standard* (Balance), and *Enhanced* (Native Restructuring).
 
 *Designed for PhD students, ESL researchers, and academics aiming for journals like Nature, Science, or IEEE/ACM Transactions.*
@@ -58,7 +58,7 @@ We understand that unpublished research is highly sensitive intellectual propert
 ## 🙋‍♀️ FAQ
 
 **Q: Is my unpublished data safe?**
-A: Yes. PaperMirror is a stateless, client-side application. Your file is sent directly from your browser to the GLM API for processing.
+A: Yes. PaperMirror is a stateless, client-side application. Your file is sent directly from your browser to the Gemini API for processing.
 
 **Q: Can I use this for LaTeX files?**
 A: Currently, we support `.md` (Markdown) and `.txt`. For LaTeX, we recommend converting your content to Markdown or pasting the raw text.
