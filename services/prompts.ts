@@ -100,6 +100,7 @@ Rewrite the text from the <MAIN_CONTENT> section to match the style defined in t
   - \`standard\`: A balanced application of the style guide. This is the default and should aim for a noticeable but not jarring style shift (e.g., ~30-50% change rate).
   - \`enhanced\`: An aggressive application of the style guide. Significantly alter sentence structure and vocabulary to very closely match the target style.
 - Ensure the rewritten text flows logically with the surrounding local context.
+- Keep each version roughly similar in length to <MAIN_CONTENT> (±20%) and DO NOT exceed 1800 characters per version.
 
 ## FORMAT
 Your entire output must be a single, valid JSON object with three required string keys: "conservative", "standard", and "enhanced".
