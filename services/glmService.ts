@@ -26,6 +26,7 @@ interface GLMRequest {
     stream?: boolean;
     top_p?: number;
     thinking?: { type: string };
+    response_format?: { type: string };
 }
 
 interface GLMResponse {
@@ -62,7 +63,8 @@ async function generateData<T>(
             max_tokens: glmConfig.maxTokens,
             stream: false,
             top_p: glmConfig.topP,
-            thinking: glmConfig.thinkingEnabled ? { type: "enabled" } : { type: "disabled" }
+            thinking: glmConfig.thinkingEnabled ? { type: "enabled" } : { type: "disabled" },
+            response_format: { type: "json_object" }
         };
 
         const response = await fetch(API_ENDPOINT, {
