@@ -28,7 +28,7 @@ export const glmConfig = {
    * Whether to enable thinking mode for deeper reasoning.
    * GLM-4.5-air supports thinking mode for complex tasks.
    */
-  thinkingEnabled: true,
+  thinkingEnabled: false,
 };
 
 // Legacy export for backward compatibility
