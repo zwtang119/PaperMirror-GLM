@@ -162,11 +162,18 @@ ${fullDocumentContent}
 Summarize the full document and each of its major sections identified by headings.
 
 ## CONSTRAINTS
-- Section titles should be extracted as accurately as possible from headings.
-- Summaries must be concise, typically 1-2 sentences each.
-- If no clear sections are found, provide a single entry in 'sectionSummaries' with the title "Full Document".
+- You MUST return both keys: "documentSummary" and "sectionSummaries".
+- "sectionSummaries" MUST be an array of objects, each with exactly "sectionTitle" (string) and "summary" (string).
+- Section titles should be extracted from headings; summaries must be concise (1–2 sentences).
+- If no clear sections are found, return a single entry in "sectionSummaries": { "sectionTitle": "Full Document", "summary": <overall summary> }.
 
 ## FORMAT
-Your entire output must be a single, valid JSON object with the keys "documentSummary" and "sectionSummaries".
+Return ONLY a JSON object, no extra text. Example:
+{
+  "documentSummary": "...",
+  "sectionSummaries": [
+    { "sectionTitle": "Introduction", "summary": "..." }
+  ]
+}
 `,
 };
