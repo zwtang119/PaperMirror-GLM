@@ -18,6 +18,7 @@ interface Chunk {
 
 const PARAGRAPHS_PER_CHUNK = 8;
 const MIN_CHUNK_SIZE = 400;
+const MAX_CHUNK_CHAR = 2000;
 
 function chunkDocument(content: string): Chunk[] {
   const trimmedContent = content.replace(/\r\n/g, '\n').trim();
@@ -32,22 +33,35 @@ function chunkDocument(content: string): Chunk[] {
     '实验', '结果', '讨论', '结论', '参考文献', '致谢', '附录'
   ].join('|');
   
-  const sectionRegex = new RegExp(`(^#+\\s.*|^(?:\\d+\\.?\\s*)?\\b(?:${academicSections})\\b.*$)`, 'im');
+  const sectionRegex = new RegExp(`(^#+\s+.*|^(?:\d+\.?\s*)?(?:${academicSections}).*$)`, 'im');
   const rawChunks = trimmedContent.split(sectionRegex);
   
   const chunks: Chunk[] = [];
   
   for (let i = 1; i < rawChunks.length; i += 2) {
-    const title = rawChunks[i].replace(/^#+\s/,'').trim();
-    const content = (rawChunks[i] + rawChunks[i+1]).trim();
-    if(content) {
+    const title = rawChunks[i].replace(/^#+\s*/,'').trim();
+    const content = (rawChunks[i + 1] ?? '').trim();
+    if (content) {
       chunks.push({ title, content });
     }
   }
 
   if (chunks.length <= 1) {
     const paragraphs = trimmedContent.split(/\n\s*\n/).filter(p => p.trim() !== '');
-    if (paragraphs.length === 0 && trimmedContent) return [{ title: 'Full Document', content: trimmedContent }];
+    if (paragraphs.length <= 1) {
+      const parts: Chunk[] = [];
+      let start = 0;
+      while (start < trimmedContent.length) {
+        let end = Math.min(start + MAX_CHUNK_CHAR, trimmedContent.length);
+        let boundary = trimmedContent.lastIndexOf('\n\n', end);
+        if (boundary <= start) boundary = trimmedContent.lastIndexOf('\n', end);
+        if (boundary <= start) boundary = end;
+        const segment = trimmedContent.slice(start, boundary).trim();
+        if (segment) parts.push({ title: `Part ${parts.length + 1}`, content: segment });
+        start = boundary < trimmedContent.length ? boundary + 1 : boundary;
+      }
+      return parts.length ? parts : [{ title: 'Full Document', content: trimmedContent }];
+    }
 
     const paragraphChunks: Chunk[] = [];
     let currentChunkContent = '';
@@ -74,7 +88,8 @@ function mergeSmallChunks(chunks: Chunk[]): Chunk[] {
   for (let i = 1; i < chunks.length; i++) {
     const current = chunks[i];
     
-    if (tempChunk.content.length < MIN_CHUNK_SIZE) {
+    const wouldMergeLen = tempChunk.content.length + 2 + current.content.length;
+    if (tempChunk.content.length < MIN_CHUNK_SIZE && wouldMergeLen <= MAX_CHUNK_CHAR) {
       tempChunk.content += '\n\n' + current.content;
       tempChunk.title = tempChunk.title.includes('Merged') ? tempChunk.title : `${tempChunk.title} + ${current.title}`;
     } else {
