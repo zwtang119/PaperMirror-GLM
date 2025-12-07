@@ -16,7 +16,7 @@ interface Chunk {
   content: string;
 }
 
-const PARAGRAPHS_PER_CHUNK = 8;
+const PARAGRAPHS_PER_CHUNK = 6;
 const MIN_CHUNK_SIZE = 400;
 const MAX_CHUNK_CHAR = 2000;
 
