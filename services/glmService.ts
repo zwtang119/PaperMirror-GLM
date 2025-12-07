@@ -133,7 +133,9 @@ async function generateData<T>(
 export const generateDocumentContext = async (fullDocumentContent: string): Promise<DocumentContext> => {
     const { systemInstruction, getPrompt } = documentContextPrompt;
     const prompt = getPrompt(fullDocumentContent);
-    return generateData<DocumentContext>(prompt, systemInstruction);
+    const raw = await generateData<DocumentContext>(prompt, systemInstruction);
+    const sectionSummaries = Array.isArray(raw.sectionSummaries) ? raw.sectionSummaries : [{ sectionTitle: 'Full Document', summary: raw.documentSummary ?? '' }];
+    return { documentSummary: raw.documentSummary ?? '', sectionSummaries };
 };
 
 export const extractStyleGuide = async (samplePaperContent: string): Promise<StyleGuide> => {
