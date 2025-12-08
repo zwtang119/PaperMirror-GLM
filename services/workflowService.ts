@@ -158,7 +158,8 @@ export const runInferenceWorkflow = async ({
         }
       });
       
-      await new Promise(resolve => setTimeout(resolve, 100));
+      // 增加延迟以适应免费模型的QPS限制（2次/秒）
+      await new Promise(resolve => setTimeout(resolve, 600));
       
     } catch (chunkError) {
       console.error(`Chunk ${i + 1} failed:`, chunkError);
