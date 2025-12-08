@@ -87,7 +87,7 @@ const SuccessResultView: React.FC<SuccessResultViewProps> = ({ result, downloadL
         </nav>
       </div>
 
-      <div className="mt-6">
+      <div className="mt-6 pl-8">
         {contentKey && (
           <div
             className="prose prose-slate max-w-none p-5 bg-white rounded-md border border-slate-200 h-[60vh] overflow-y-auto"

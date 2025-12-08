@@ -35,7 +35,7 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ report }) => {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-xl font-bold text-slate-900 mb-4">Style Analysis Report</h2>
+        <h2 className="text-xl font-bold text-slate-900 mb-4 pl-2">Style Analysis Report</h2>
       </div>
 
       <div className="space-y-4">
@@ -44,7 +44,7 @@ const AnalysisReport: React.FC<AnalysisReportProps> = ({ report }) => {
       </div>
 
       <div>
-         <h3 className="text-lg font-semibold text-slate-800 mb-3">Overall Migration Scores</h3>
+         <h3 className="text-lg font-semibold text-slate-800 mb-3 pl-2">Overall Migration Scores</h3>
          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="bg-blue-50 border border-blue-200 p-4 rounded-lg text-center">
                 <h4 className="text-sm font-medium text-blue-700">Style Consistency Score</h4>
