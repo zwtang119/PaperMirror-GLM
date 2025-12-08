@@ -82,6 +82,7 @@ async function generateData<T>(
         }
 
         const data: GLMResponse = await response.json();
+        console.log("GLM usage:", data.usage);
         text = data.choices[0]?.message?.content || '';
         
         if (!text) {
