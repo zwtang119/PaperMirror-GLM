@@ -4,7 +4,7 @@ export const glmConfig = {
    * The name of the GLM model to be used for all API calls.
    * Changed to 'glm-4.5-flash' for free usage.
    */
-  modelName: 'glm-4.5-flash',
+  modelName: 'glm-4.5-air',
 
   /**
    * The temperature setting for the model.
