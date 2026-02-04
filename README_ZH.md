@@ -1,11 +1,10 @@
-# PaperMirror: 论文魔镜 - AI 学术风格迁移
+# PaperMirror-GLM: 论文魔镜（国内版）- AI 学术风格迁移
 
-[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-Click_Here-blue?style=for-the-badge)](https://zwtang119.github.io/PaperMirror/)
 [![License](https://img.shields.io/badge/license-MIT-green)](./LICENSE)
 
-> **像照镜子一样，将顶刊范文的风格“映照”在你的草稿上。**
+> **专为国内用户优化的学术风格迁移工具，基于阿里云函数计算和 GLM AI。**
 
-PaperMirror 旨在**消除 AI 生成文本与人类学者手稿风格之间的差异**。它不仅仅是一个润色工具，而是一个**量化风格迁移引擎**。它通过分析你上传的范文（Sample Paper），提取其独特的句法结构和词汇特征，然后利用先进的 **AI 引擎** 对你的论文草稿（Draft）进行重写。它**保留原本的语言**（无论是中文还是英文），只迁移风格，使其读起来更像你指定的范文。
+PaperMirror-GLM 是 PaperMirror 项目的国内版本，旨在**消除 AI 生成文本与人类学者手稿风格之间的差异**。它不仅仅是一个润色工具，而是一个**量化风格迁移引擎**。它通过分析你上传的范文（Sample Paper），提取其独特的句法结构和词汇特征，然后利用 **GLM AI** 对你的论文草稿进行重写。它**保留原本的语言**（无论是中文还是英文），只迁移风格，使其读起来更像你指定的范文。
 
 ---
 
