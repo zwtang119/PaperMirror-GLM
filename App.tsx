@@ -9,7 +9,17 @@ const App: React.FC = () => {
   const [samplePaper, setSamplePaper] = useState<File | null>(null);
   const [draftPaper, setDraftPaper] = useState<File | null>(null);
 
-  const { status, result, error, progress, downloadLinks, startMigration } = useMigrationWorkflow();
+  const {
+    isIdle,
+    isLoading,
+    isSuccess,
+    isError,
+    result,
+    error,
+    progress,
+    downloadLinks,
+    startMigration
+  } = useMigrationWorkflow();
 
   // Load persisted files from local storage on initial component mount
   useEffect(() => {
@@ -95,16 +105,16 @@ const App: React.FC = () => {
               </h2>
               <button
                 onClick={handleMigrateClick}
-                disabled={!samplePaper || !draftPaper || status === 'loading'}
+                disabled={!samplePaper || !draftPaper || isLoading}
                 className="w-full flex items-center justify-center bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:bg-blue-700 disabled:bg-slate-400 disabled:cursor-not-allowed transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
               >
-                {status === 'loading' ? (
+                {isLoading ? (
                   <>
                     <SpinnerIcon />
                     {progress?.stage || 'Initializing...'}
                   </>
                 ) : (
-                  'Migrate Style'
+                  '开始迁移'
                 )}
               </button>
                {error && <p className="text-red-600 text-sm mt-4">{error}</p>}
@@ -112,12 +122,21 @@ const App: React.FC = () => {
           </aside>
 
           <section className="lg:col-span-8 xl:col-span-9">
-            <ResultDisplay status={status} result={result} downloadLinks={downloadLinks} progress={progress} />
+            <ResultDisplay
+              isIdle={isIdle}
+              isLoading={isLoading}
+              isSuccess={isSuccess}
+              isError={isError}
+              error={error}
+              result={result}
+              downloadLinks={downloadLinks}
+              progress={progress}
+            />
           </section>
         </div>
       </main>
       <footer className="text-center py-6 text-sm text-slate-500">
-        <p>Powered by Gemini 3.0 Pro Preview • Privacy First • Client-Side Processing</p>
+        <p>Powered by GLM AI & Alibaba Cloud • 国内版 • Privacy First</p>
       </footer>
     </div>
   );

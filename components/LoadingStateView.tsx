@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ProgressUpdate } from '../types';
+import type { ProgressUpdate } from '@papermirror/types';
 
 interface LoadingStateViewProps {
   progress: ProgressUpdate | null;

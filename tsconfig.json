@@ -22,6 +22,12 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@papermirror/types": [
+        "./shared/types/src/index.ts"
+      ],
+      "@papermirror/prompts": [
+        "./shared/prompts/src/index.ts"
       ]
     },
     "allowImportingTsExtensions": true,
