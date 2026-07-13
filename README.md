@@ -65,6 +65,16 @@ A: Currently, we support `.md` (Markdown) and `.txt`. For LaTeX, we recommend co
 
 ---
 
+## 📚 Project Documentation
+
+This project uses a three-repository architecture:
+
+- **PaperMirror-App**: International version frontend
+- **PaperMirror-GLM** (this repository): Domestic version frontend
+- **PaperMirror-Server**: Backend service (closed source)
+
+For detailed project documentation, roadmap, and architecture decisions, please refer to the PaperMirror-Server repository.
+
 ## 📄 License
 
 MIT License. Free for academic and personal use.
