@@ -117,7 +117,7 @@ const App: React.FC = () => {
                   '开始迁移'
                 )}
               </button>
-               {error && <p className="text-red-600 text-sm mt-4">{error}</p>}
+               {error && <p className="text-red-600 text-sm mt-4">{error.message || String(error)}</p>}
             </div>
           </aside>
 

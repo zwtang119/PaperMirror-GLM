@@ -1,6 +1,6 @@
 import { processPaperWithCloudFunction } from './cloudFunctionService';
 import { getAnalysisConfig } from '../src/config';
-import type { MigrationResult, ProgressUpdate } from '../../PaperMirror-Server/types/dist';
+import type { MigrationResult, ProgressUpdate } from '@papermirror/types';
 import {
   calculateFidelityGuardrails,
   calculateMetrics,
