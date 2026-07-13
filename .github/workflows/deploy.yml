@@ -34,6 +34,9 @@ jobs:
         run: npm run build
         env:
           VITE_GLM_API_KEY: ${{ secrets.API_KEY }}
+          VITE_CLOUD_FUNCTION_URL: ${{ secrets.VITE_CLOUD_FUNCTION_URL }}
+          VITE_APP_TOKEN: ${{ secrets.VITE_APP_TOKEN }}
+          VITE_ANALYSIS_MODE: 'full'
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
