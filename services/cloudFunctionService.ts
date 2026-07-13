@@ -144,10 +144,12 @@ export async function processPaperWithCloudFunction(
                 break;
             }
 
-            // 检查进度超时（超过 60 秒无响应视为超时）
+            // 检查进度超时（根据文档大小动态调整超时时间）
             const now = Date.now();
-            if (now - lastProgressTime > 60000) {
-                const totalChars = samplePaper.length + draftPaper.length;
+            const totalChars = samplePaper.length + draftPaper.length;
+            // 小文档60秒，大文档300秒（5分钟）
+            const inactivityTimeout = totalChars > 30000 ? 300000 : 60000;
+            if (now - lastProgressTime > inactivityTimeout) {
                 const isLargeDoc = totalChars > 30000;
 
                 let message = '服务器响应超时';
@@ -161,7 +163,7 @@ export async function processPaperWithCloudFunction(
                     metadata: {
                         documentSize: totalChars,
                         isLargeDocument: isLargeDoc,
-                        suggestion: '建议：1) 点击重试按钮 2) 或将文档分段处理 3) 大文档可能需要1-2分钟'
+                        suggestion: '建议：1) 点击重试按钮 2) 或将文档分段处理 3) 大文档可能需要1-5分钟'
                     }
                 };
                 console.error(`[${requestId}] 进度超时，上次更新: ${new Date(lastProgressTime).toISOString()}`);
